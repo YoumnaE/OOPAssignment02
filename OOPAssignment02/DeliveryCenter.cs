@@ -10,7 +10,7 @@ namespace OOPAssignment02
 
         public DeliveryCenter()
         {
-            shipments = new Shipment[10];
+            shipments = new Shipment[20];
         }
 
         // integer indexer
@@ -58,5 +58,29 @@ namespace OOPAssignment02
 
             return false;
         }
+
+        public bool RemoveShipment(string trackingCode)
+        {
+            for (int i = 0; i < shipments.Length; i++)
+            {
+                if (shipments[i].TrackingCode == trackingCode)
+                {
+                    shipments[i] = null;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public void PrintAllShipments()
+        {
+            for (int i = 0; i < shipments.Length; i++)
+            {
+                    shipments[i].PrintShipment();
+                    Console.WriteLine("--------------------");
+            }
+        }
+
     }
 }
