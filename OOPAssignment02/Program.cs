@@ -36,86 +36,155 @@
             #endregion
 
             #region Part Two
-            #region Q1
+            Console.Write("Enter center name: ");
+            string centerName = Console.ReadLine();
+            DeliveryCenter deliveryCenter = new DeliveryCenter(centerName);
+            Console.WriteLine("Delivery center created: " + deliveryCenter.CenterName);
 
-            DeliveryAddress address1 = new DeliveryAddress("Alex", "Smouha", 20);
-            DeliveryAddress address2 = address1;
+            #region Standard Shipment
 
-            address2.Street = "Sidi Gaber";
-            address2.BuildingNumber = 1;
-            //Because DeliveryAddress is a struct, address2 gets its own copy
-            Console.WriteLine(address1.GetFullAddress());
-            Console.WriteLine(address2.GetFullAddress());
+            Console.WriteLine("\n Standard Shipment");
 
+            Console.Write("Tracking Code: ");
+            string trackingCode = Console.ReadLine();
 
+            Console.Write("Description: ");
+            string description = Console.ReadLine();
 
+            Console.Write("Weight: ");
+            double weight = double.Parse(Console.ReadLine());
 
-            DeliveryCenter deliveryCenter = new DeliveryCenter();
+            Console.Write("Delivery Fee: ");
+            double deliveryFee = double.Parse(Console.ReadLine());
 
-            for (int i = 0; i < 3; i++)
-            {
-                Console.WriteLine($"***Enter Shipment {i + 1}***");
+            Console.Write("City: ");
+            string city = Console.ReadLine();
 
-                Console.Write("Tracking Code: ");
-                string trackingCode = Console.ReadLine();
+            Console.Write("Country: ");
+            string country = Console.ReadLine();
 
-                Console.Write("Description: ");
-                string description = Console.ReadLine();
+            Console.Write("Postal Code: ");
+            int postalCode = int.Parse(Console.ReadLine());
 
-                Console.Write("Weight: ");
-                double weight = double.Parse(Console.ReadLine());
-
-                Console.Write("Delivery Fee: ");
-                double deliveryFee = double.Parse(Console.ReadLine());
-
-                Console.Write("City: ");
-                string city = Console.ReadLine();
-
-                Console.Write("Street: ");
-                string street = Console.ReadLine();
-
-                Console.Write("Building Number: ");
-                int buildingNumber = int.Parse(Console.ReadLine());
-
-                DeliveryAddress address = new DeliveryAddress(city, street, buildingNumber);
-
-                Shipment shipment = new Shipment(trackingCode, description, weight, deliveryFee, address);
-
-                deliveryCenter.AddShipment(shipment);
+            DeliveryAddress address = new DeliveryAddress(city,country,postalCode);
+            StandardShipment standard = new StandardShipment(trackingCode,description,weight,deliveryFee,address);
 
             #endregion
 
 
+            #region Express Shipment
 
+            Console.WriteLine("\n--- Express Shipment ---");
 
+            Console.Write("Tracking Code: ");
+            trackingCode = Console.ReadLine();
 
-            }
+            Console.Write("Description: ");
+            description = Console.ReadLine();
 
-            //print all 3 shipments
-            for (int i = 0; i < 3; i++)
-            {
-                Console.WriteLine($"\nShipment {i + 1}:");
-                deliveryCenter[i].PrintShipment();
-            }
+            Console.Write("Weight: ");
+            weight = double.Parse(Console.ReadLine());
 
+            Console.Write("Delivery Fee: ");
+            deliveryFee = double.Parse(Console.ReadLine());
+
+            Console.Write("Extra Fee: ");
+            decimal extraFee = decimal.Parse(Console.ReadLine());
+
+            Console.Write("City: ");
+            city = Console.ReadLine();
+
+            Console.Write("Country: ");
+            country = Console.ReadLine();
+
+            Console.Write("Postal Code: ");
+            postalCode = int.Parse(Console.ReadLine());
+
+            address = new DeliveryAddress(city,country,postalCode);
+
+            ExpressShipment express = new ExpressShipment(trackingCode,description,weight,deliveryFee,address,extraFee);
+
+            #endregion
+
+            #region International Shipment
+
+            Console.WriteLine("\n International Shipment");
+
+            Console.Write("Tracking Code: ");
+            trackingCode = Console.ReadLine();
+
+            Console.Write("Description: ");
+            description = Console.ReadLine();
+
+            Console.Write("Weight: ");
+            weight = double.Parse(Console.ReadLine());
+
+            Console.Write("Delivery Fee: ");
+            deliveryFee = double.Parse(Console.ReadLine());
+
+            Console.Write("Destination Country: ");
+            string destinationCountry = Console.ReadLine();
+
+            Console.Write("Customs Fee: ");
+            decimal customsFee = decimal.Parse(Console.ReadLine());
+
+            Console.Write("City: ");
+            city = Console.ReadLine();
+
+            Console.Write("Country: ");
+            country = Console.ReadLine();
+
+            Console.Write("Postal Code: ");
+            postalCode = int.Parse(Console.ReadLine());
+
+            address = new DeliveryAddress(city,country,postalCode);
+
+            InternationalShipment international = new InternationalShipment(trackingCode,description,weight,deliveryFee,address,destinationCountry,customsFee);
+
+            #endregion
+
+            deliveryCenter.AddShipment(standard);
+            deliveryCenter.AddShipment(express);
+            deliveryCenter.AddShipment(international);
+
+            Console.WriteLine("\n ALL SHIPMENTS");
+            deliveryCenter.PrintAllShipments();
 
             //search using string indexer
+            #region Search
+
             Console.Write("\nEnter tracking code to search: ");
             string searchCode = Console.ReadLine();
 
             Shipment foundShipment = deliveryCenter[searchCode];
 
-            // Check if shipment was found
-            if (!string.IsNullOrEmpty(foundShipment.TrackingCode))
-            {
+            if (foundShipment != null){
                 Console.WriteLine("\nShipment found:");
                 foundShipment.PrintShipment();
-            }
-            else
-            {
+            }else{
                 Console.WriteLine("Shipment not found.");
             }
 
+            #endregion
+
+
+            #region remove
+
+            Console.Write("Enter tracking code to remove: ");
+            string userTrackingCode = Console.ReadLine();
+
+            bool removed = deliveryCenter.RemoveShipment(userTrackingCode);
+
+            if (removed){
+                Console.WriteLine("removed successfully.");
+                Console.WriteLine("\n ALL SHIPMENTS");
+                deliveryCenter.PrintAllShipments();
+            }
+            else{
+                Console.WriteLine("not found.");
+            }
+
+            #endregion
             Console.ReadLine();
             #endregion
         }

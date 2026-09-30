@@ -8,10 +8,12 @@ namespace OOPAssignment02
     {
         private Shipment[] shipments;
 
-        public DeliveryCenter()
+        public DeliveryCenter(string centerName)
         {
+            CenterName = centerName;
             shipments = new Shipment[20];
         }
+        public string CenterName { get; set; }
 
         // integer indexer
         public Shipment this[int index]
@@ -49,7 +51,7 @@ namespace OOPAssignment02
         {
             for (int i = 0; i < shipments.Length; i++)
             {
-                if (string.IsNullOrEmpty(shipments[i].TrackingCode))
+                if (shipments[i] == null)
                 {
                     shipments[i] = shipment;
                     return true;
@@ -77,8 +79,11 @@ namespace OOPAssignment02
         {
             for (int i = 0; i < shipments.Length; i++)
             {
+                if (shipments[i] != null)
+                {
                     shipments[i].PrintShipment();
                     Console.WriteLine("--------------------");
+                }
             }
         }
 
