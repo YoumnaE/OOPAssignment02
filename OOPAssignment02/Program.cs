@@ -8,28 +8,33 @@
 
             #region Q1
 
-            //a) What is the difference between a class and a struct?
-            // Struct: 1. Value Type,stored in stack, non-nullable
-            //         2. paramterless or custom constructor
-            //         3. better performance with smaller data
+            //a) What is the difference between Method Overloading and Method Overriding?
+            // Overloading: 1. same method different parameters
+            //              2. paramters must be different (type or number)
+            //              3. compile time 
+            //              4. static binding
 
-            // Class: 1. Reference Type, stored in heap, nullable
-            //        2. paramterless or custom constructor
-            //        3. suitable with complex data
+            // Overriding: 1. new method implementation
+            //             2. between parent and child
+            //             3. runtime
+            //              4. dynamic binding
 
 
 
-            //b) while struct has better performance with smaller data, class has more complex feature such as inheritance suitable with more complex data
+            //b) What is the difference between Static Binding and Dynamic Binding?
+            // Static Binding: 1. compile time
+            //                 2. faster 
+            //                 3. used in overloading
+            //                 4. early binding
+
+            // Dynamic Binding: 1. run time
+            //                  2. more flexible 
+            //                  3. used in overriding
+            //                  4. late binding
 
             #endregion
 
             #region Q2
-
-            //a) Which class is the parent class? Shipment
-            //b) Which class is the child class? ExpressShipment
-            //c) What members are inherited by ExpressShipment? TrackingCode
-            //d) Why is inheritance better than duplicating the same code in multiple classes?
-            //      less code, easier to maintain and extend
 
             #endregion
 
