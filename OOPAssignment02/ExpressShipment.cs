@@ -18,7 +18,7 @@ namespace OOPAssignment02
             }
         }
 
-        public new double EstimatedCost     //overrides estimatedcost
+        public override double EstimatedCost     //overrides estimatedcost
         {
             get
             {
@@ -30,6 +30,11 @@ namespace OOPAssignment02
             : base(trackingCode, description, weight, deliveryFee, destination)
         {
             ExtraFee = extraFee;
+        }
+        public override void PrintShipment()
+        {
+            base.PrintShipment();
+            Console.WriteLine("Extra Fee: " + ExtraFee);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace OOPAssignment02
             }
         }
 
-        public new double EstimatedCost
+        public override double EstimatedCost
         {
             get
             {
@@ -37,11 +37,17 @@ namespace OOPAssignment02
             }
         }
 
-        public InternationalShipment(string trackingCode, string description,double weight,double deliveryFee,DeliveryAddress destination,string destinationCountry,decimal customsFee)
+        public InternationalShipment(string trackingCode, string description, double weight, double deliveryFee, DeliveryAddress destination, string destinationCountry, decimal customsFee)
             : base(trackingCode, description, weight, deliveryFee, destination)
         {
             DestinationCountry = destinationCountry;
             CustomsFee = customsFee;
+        }
+        public override void PrintShipment()
+        {
+            base.PrintShipment();
+            Console.WriteLine("Destination Country: " + DestinationCountry);
+            Console.WriteLine("Customs Fee: " + CustomsFee);
         }
     }
 }
