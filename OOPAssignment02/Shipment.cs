@@ -49,7 +49,7 @@ namespace OOPAssignment02
         }
         public DeliveryAddress Destination { get; set; }
 
-        public double EstimatedCost
+        public virtual double EstimatedCost
         {
             get { return DeliveryFee + (Weight * 5); }
         }
@@ -82,7 +82,7 @@ namespace OOPAssignment02
                 deliveryFee = (double)newFee;
             }
         }
-        public void PrintShipment()
+        public virtual void PrintShipment()
         {
             Console.WriteLine("Tracking Code: " + TrackingCode);
             Console.WriteLine("Description: " + Description);
@@ -91,6 +91,21 @@ namespace OOPAssignment02
             Console.WriteLine("Destination: " + Destination.GetFullAddress());
             Console.WriteLine("Estimated Cost: " + EstimatedCost);
         }
+        public void UpdateWeight(double newWeight)
+        {
+            if (newWeight > 0)
+            {
+                Weight = newWeight;
+            }
+        }
 
+        //updates weign after adding packing weight
+        public void UpdateWeight(double newWeight, double packingWeight)
+        {
+            if (newWeight > 0 && packingWeight >= 0)
+            {
+                Weight = newWeight + packingWeight;
+            }
+        }
     }
 }
