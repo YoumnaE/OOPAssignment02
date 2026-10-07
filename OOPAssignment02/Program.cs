@@ -20,6 +20,41 @@
 
             #endregion
 
+            #region Assignment 04
+
+            #region Q1
+
+            // a)  What is Abstraction in Object - Oriented Programming?
+            //     hiding unimportant implementtation and only showing key features
+
+            // b)  Why is abstraction considered one of the four pillars of OOP?
+            // makes code easier to understand, use, maintain and hides complexity 
+
+            #endregion
+
+            #region Q2
+
+            // a)  What is the difference between an Abstract Class and an Interface?
+            //     abstract class: 1. can have both abstarct and non-abstract methods
+            //                     2. conatins fields + constructors
+            //                     3. class can inherit only one
+            //                     4. used when classes hvae shared code
+            //     Interface: 1. defines structure
+            //                2. class can implement more than 1
+            //                3. unrelated classes with same behaviour
+
+            // b)  When would you choose an Interface instead of an Abstract Class?
+            //    when classes can be unrelated but share same structure
+            //    or when class has multiple behaviors ( can implement multiple interfaces)
+
+            // c)  Can a class inherit from multiple abstract classes? Can it implement multiple interfaces?
+            //     class cannot inherit multiple classes but can implement multiple interfaces
+
+
+            #endregion
+
+
+            #endregion
             #endregion
 
             #region Part Two
