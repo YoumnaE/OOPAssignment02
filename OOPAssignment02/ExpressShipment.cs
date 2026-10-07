@@ -18,22 +18,28 @@ namespace OOPAssignment02
             }
         }
 
-        public override double EstimatedCost     //overrides estimatedcost
-        {
-            get
-            {
-                return DeliveryFee + (Weight * 5) + (double)ExtraFee;
-            }
-        }
 
-        public ExpressShipment(string trackingCode, string description, double weight,double deliveryFee,DeliveryAddress destination, decimal extraFee)
+        public ExpressShipment(string trackingCode, string description, decimal weight,decimal deliveryFee,DeliveryAddress destination, decimal extraFee)
             : base(trackingCode, description, weight, deliveryFee, destination)
         {
             ExtraFee = extraFee;
         }
+        public override decimal EstimatedCost
+        {
+            get
+            {
+                return DeliveryFee + (Weight * 5) + ExtraFee;
+            }
+        }
+
         public override void PrintShipment()
         {
-            base.PrintShipment();
+            Console.WriteLine("Tracking Code: " + TrackingCode);
+            Console.WriteLine("Description: " + Description);
+            Console.WriteLine("Weight: " + Weight);
+            Console.WriteLine("Delivery Fee: " + DeliveryFee);
+            Console.WriteLine("Destination: " + Destination.GetFullAddress());
+            Console.WriteLine("Estimated Cost: " + EstimatedCost);
             Console.WriteLine("Extra Fee: " + ExtraFee);
         }
     }

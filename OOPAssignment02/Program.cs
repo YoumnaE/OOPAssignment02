@@ -77,10 +77,10 @@
             string description = Console.ReadLine();
 
             Console.Write("Weight: ");
-            double weight = double.Parse(Console.ReadLine());
+            decimal weight = decimal.Parse(Console.ReadLine());
 
             Console.Write("Delivery Fee: ");
-            double deliveryFee = double.Parse(Console.ReadLine());
+            decimal deliveryFee = decimal.Parse(Console.ReadLine());
 
             Console.Write("City: ");
             string city = Console.ReadLine();
@@ -108,10 +108,10 @@
             description = Console.ReadLine();
 
             Console.Write("Weight: ");
-            weight = double.Parse(Console.ReadLine());
+            weight = decimal.Parse(Console.ReadLine());
 
             Console.Write("Delivery Fee: ");
-            deliveryFee = double.Parse(Console.ReadLine());
+            deliveryFee = decimal.Parse(Console.ReadLine());
 
             Console.Write("Extra Fee: ");
             decimal extraFee = decimal.Parse(Console.ReadLine());
@@ -142,10 +142,10 @@
             description = Console.ReadLine();
 
             Console.Write("Weight: ");
-            weight = double.Parse(Console.ReadLine());
+            weight = decimal.Parse(Console.ReadLine());
 
             Console.Write("Delivery Fee: ");
-            deliveryFee = double.Parse(Console.ReadLine());
+            deliveryFee = decimal.Parse(Console.ReadLine());
 
             Console.Write("Destination Country: ");
             string destinationCountry = Console.ReadLine();

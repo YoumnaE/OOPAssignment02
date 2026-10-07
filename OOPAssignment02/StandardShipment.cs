@@ -6,10 +6,27 @@ namespace OOPAssignment02
 {
     internal class StandardShipment : Shipment
     {
-        public StandardShipment(string trackingCode,string description,double weight,double deliveryFee,DeliveryAddress destination)
+        public StandardShipment(string trackingCode,string description, decimal weight, decimal deliveryFee,DeliveryAddress destination)
         : base(trackingCode, description, weight, deliveryFee, destination)
         {
 
+        }
+        public override decimal EstimatedCost
+        {
+            get
+            {
+                return DeliveryFee + (Weight * 5);
+            }
+        }
+
+        public override void PrintShipment()
+        {
+            Console.WriteLine("Tracking Code: " + TrackingCode);
+            Console.WriteLine("Description: " + Description);
+            Console.WriteLine("Weight: " + Weight);
+            Console.WriteLine("Delivery Fee: " + DeliveryFee);
+            Console.WriteLine("Destination: " + Destination.GetFullAddress());
+            Console.WriteLine("Estimated Cost: " + EstimatedCost);
         }
     }
 }

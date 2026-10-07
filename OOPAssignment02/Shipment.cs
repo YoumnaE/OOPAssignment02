@@ -8,8 +8,8 @@ namespace OOPAssignment02
     {
         private string trackingCode;
         private string description;
-        private double weight;
-        private double deliveryFee;
+        private decimal weight;
+        private decimal deliveryFee;
 
         //read-only
         public string TrackingCode
@@ -27,7 +27,7 @@ namespace OOPAssignment02
                     description = value;
             }
         }
-        public double Weight
+        public decimal Weight
         {
             get { return weight; }
             set
@@ -38,7 +38,7 @@ namespace OOPAssignment02
         }
 
         //private setter
-        public double DeliveryFee
+        public decimal DeliveryFee
         {
             get { return deliveryFee; }
             private set
@@ -67,7 +67,7 @@ namespace OOPAssignment02
                 0
             );
         }
-        public Shipment(string trackingCode, string description, double weight, double deliveryFee, DeliveryAddress destination)
+        public Shipment(string trackingCode, string description, decimal weight, decimal deliveryFee, DeliveryAddress destination)
         {
             this.trackingCode = trackingCode;     //belonging to current shipment
             Description = description;
@@ -79,11 +79,11 @@ namespace OOPAssignment02
         {
             if (newFee > 0)
             {
-                deliveryFee = (double)newFee;
+                deliveryFee = newFee;
             }
         }
         public abstract void PrintShipment();
-        public void UpdateWeight(double newWeight)
+        public void UpdateWeight(decimal newWeight)
         {
             if (newWeight > 0)
             {
@@ -92,7 +92,7 @@ namespace OOPAssignment02
         }
 
         //updates weign after adding packing weight
-        public void UpdateWeight(double newWeight, double packingWeight)
+        public void UpdateWeight(decimal newWeight, decimal packingWeight)
         {
             if (newWeight > 0 && packingWeight >= 0)
             {
