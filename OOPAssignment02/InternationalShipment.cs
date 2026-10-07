@@ -4,8 +4,12 @@ using System.Text;
 
 namespace OOPAssignment02
 {
-    internal class InternationalShipment : Shipment
+    internal class InternationalShipment : Shipment, ITrackable
     {
+        public string GetTrackingStatus()
+        {
+            return "Shipment " + TrackingCode + " has been Delivered.";
+        }
         private string destinationCountry;
         private decimal customsFee;
 

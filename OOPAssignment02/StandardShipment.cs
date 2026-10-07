@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OOPAssignment02
 {
-    internal class StandardShipment : Shipment
+    internal class StandardShipment : Shipment, ITrackable
     {
         public StandardShipment(string trackingCode,string description, decimal weight, decimal deliveryFee,DeliveryAddress destination)
         : base(trackingCode, description, weight, deliveryFee, destination)
@@ -27,6 +27,10 @@ namespace OOPAssignment02
             Console.WriteLine("Delivery Fee: " + DeliveryFee);
             Console.WriteLine("Destination: " + Destination.GetFullAddress());
             Console.WriteLine("Estimated Cost: " + EstimatedCost);
+        }
+        public string GetTrackingStatus()
+        {
+            return "Shipment " + TrackingCode + " is Ready.";
         }
     }
 }
