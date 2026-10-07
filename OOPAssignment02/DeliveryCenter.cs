@@ -88,5 +88,18 @@ namespace OOPAssignment02
             }
         }
 
+        public void PrintTrackingStatuses()
+        {
+            for (int i = 0; i < shipments.Length; i++)
+            {
+                if (shipments[i] != null)
+                {
+                    ITrackable shipment = (ITrackable)shipments[i];
+
+                    Console.WriteLine(shipment.GetTrackingStatus());
+                }
+            }
+        }
+
     }
 }

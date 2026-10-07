@@ -174,6 +174,8 @@
 
             Console.WriteLine("\n ALL SHIPMENTS");
             deliveryCenter.PrintAllShipments();
+            Console.WriteLine("\n--- Tracking Statuses ---");
+            deliveryCenter.PrintTrackingStatuses();
 
             //search using string indexer
             #region Search
@@ -211,6 +213,44 @@
             else{
                 Console.WriteLine("not found.");
             }
+
+            Console.WriteLine("--- Tracking Statuses ---");
+
+            DeliveryReport.PrintShipment(standard);
+            DeliveryReport.PrintShipment(express);
+            DeliveryReport.PrintShipment(international);
+
+            Console.WriteLine("--- Insurance ---");
+
+            DeliveryReport.PrintInsurance(standard);
+            DeliveryReport.PrintInsurance(express);
+            DeliveryReport.PrintInsurance(international);
+
+            #region h & j
+
+            // h) Store shipments in an ITrackable[] array
+            Console.WriteLine("\n--- ITrackable Array ---");
+
+            ITrackable[] trackableShipments = {standard,express,international};
+
+            foreach (ITrackable shipment in trackableShipments)
+            {
+                Console.WriteLine(shipment.GetTrackingStatus());
+            }
+
+
+            // i) Store shipments in an IInsurable[] array
+            Console.WriteLine("\n--- IInsurable Array ---");
+
+            IInsurable[] insurableShipments ={standard,express,international};
+
+            foreach (IInsurable shipment in insurableShipments)
+            {
+                Console.WriteLine("Insurance Cost: " + shipment.CalculateInsurance());
+            }
+
+            #endregion
+
 
             #endregion
 
