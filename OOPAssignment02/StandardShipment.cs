@@ -4,8 +4,12 @@ using System.Text;
 
 namespace OOPAssignment02
 {
-    internal class StandardShipment : Shipment, ITrackable
+    internal class StandardShipment : Shipment, ITrackable,IInsurable
     {
+        public decimal CalculateInsurance()
+        {
+            return EstimatedCost * 0.05m;
+        }
         public StandardShipment(string trackingCode,string description, decimal weight, decimal deliveryFee,DeliveryAddress destination)
         : base(trackingCode, description, weight, deliveryFee, destination)
         {

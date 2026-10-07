@@ -4,8 +4,12 @@ using System.Text;
 
 namespace OOPAssignment02
 {
-    internal class ExpressShipment : Shipment, ITrackable
+    internal class ExpressShipment : Shipment, ITrackable, IInsurable
     {
+        public decimal CalculateInsurance()
+        {
+            return EstimatedCost * 0.08m;
+        }
         public string GetTrackingStatus()
         {
             return "Shipment " + TrackingCode + " is Out for Delivery.";
