@@ -14,6 +14,7 @@ namespace OOPAssignment02
             shipments = new Shipment[20];
         }
         public string CenterName { get; set; }
+        public Driver Driver { get; set; }
 
         // integer indexer
         public Shipment this[int index]

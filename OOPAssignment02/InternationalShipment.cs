@@ -49,5 +49,7 @@ namespace OOPAssignment02
             Console.WriteLine("Destination Country: " + DestinationCountry);
             Console.WriteLine("Customs Fee: " + CustomsFee);
         }
+
+        public virtual void GenerateCustomsReport() { }
     }
 }

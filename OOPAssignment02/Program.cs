@@ -6,35 +6,17 @@
         {
             #region Part One
 
-            #region Q1
+            #region Assignment 03 Q2
 
-            //a) What is the difference between Method Overloading and Method Overriding?
-            // Overloading: 1. same method different parameters
-            //              2. paramters must be different (type or number)
-            //              3. compile time 
-            //              4. static binding
+            // a)  What is the purpose of the sealed keyword when applied to a class? 
+            //     cannot be inherited by another class 
 
-            // Overriding: 1. new method implementation
-            //             2. between parent and child
-            //             3. runtime
-            //              4. dynamic binding
+            // b)  What is the difference between a sealed class and a sealed method?
+            //     sealed class: prevents the class from being inherited
+            //     Sealed method: prevents a method from being overridden in inheritance class
 
-
-
-            //b) What is the difference between Static Binding and Dynamic Binding?
-            // Static Binding: 1. compile time
-            //                 2. faster 
-            //                 3. used in overloading
-            //                 4. early binding
-
-            // Dynamic Binding: 1. run time
-            //                  2. more flexible 
-            //                  3. used in overriding
-            //                  4. late binding
-
-            #endregion
-
-            #region Q2
+            // c)  Can a sealed method be overridden? Why?
+            //     sealeed keyword prevents overriding 
 
             #endregion
 
@@ -45,6 +27,9 @@
             string centerName = Console.ReadLine();
             DeliveryCenter deliveryCenter = new DeliveryCenter(centerName);
             Console.WriteLine("Delivery center created: " + deliveryCenter.CenterName);
+
+            Driver driver = new Driver("Ahmed");
+            deliveryCenter.Driver = driver;
 
             #region Standard Shipment
 
@@ -184,12 +169,24 @@
                 Console.WriteLine("removed successfully.");
                 Console.WriteLine("\n ALL SHIPMENTS");
                 deliveryCenter.PrintAllShipments();
+                DeliveryHelper.PrintShipmentDetails(standard);
+                DeliveryHelper.PrintShipmentDetails(express);
+                DeliveryHelper.PrintShipmentDetails(international);
             }
             else{
                 Console.WriteLine("not found.");
             }
 
             #endregion
+
+            // Sealed class demonstration:
+            // CompletedShipment is sealed so another class cannot inherit from it.
+            //
+            // class MyShipment : CompletedShipment
+            // {
+            // }
+            // compilation error.
+
             Console.ReadLine();
             #endregion
         }
