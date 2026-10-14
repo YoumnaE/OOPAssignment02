@@ -1,4 +1,11 @@
-﻿namespace OOPAssignment02
+﻿using System.ComponentModel;
+using System.Reflection.Metadata;
+using System.Threading.Channels;
+using System.Xml.Linq;
+using static System.Net.WebRequestMethods;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace OOPAssignment02
 {
     internal class Program
     {
@@ -6,58 +13,94 @@
         {
             #region Part One
 
-            #region Assignment 03 Q2
+            #region Q1 Object Coping
 
-            // a)  What is the purpose of the sealed keyword when applied to a class? 
-            //     cannot be inherited by another class 
+            //a) What happens when you assign one object variable to another object variable?
+            //    reference is copied, both variables point to the same object in memory
 
-            // b)  What is the difference between a sealed class and a sealed method?
-            //     sealed class: prevents the class from being inherited
-            //     Sealed method: prevents a method from being overridden in inheritance class
+            //b) Does assigning one object to another create a new object? Explain.
+            //    no,it copies the reference to the existing object
 
-            // c)  Can a sealed method be overridden? Why?
-            //     sealeed keyword prevents overriding 
-
-            #endregion
-
-            #region Assignment 04
-
-            #region Q1
-
-            // a)  What is Abstraction in Object - Oriented Programming?
-            //     hiding unimportant implementtation and only showing key features
-
-            // b)  Why is abstraction considered one of the four pillars of OOP?
-            // makes code easier to understand, use, maintain and hides complexity 
+            //c) What is the difference between copying an object and copying its reference?
+            // copying a reference: Both variables refer to the same object, so changes are visible to eachother
+            // copying an object: a new object is created with copied data, changes do not affect the other 
 
             #endregion
 
-            #region Q2
+            #region Q2 Shallow and Deep Coping
 
-            // a)  What is the difference between an Abstract Class and an Interface?
-            //     abstract class: 1. can have both abstarct and non-abstract methods
-            //                     2. conatins fields + constructors
-            //                     3. class can inherit only one
-            //                     4. used when classes hvae shared code
-            //     Interface: 1. defines structure
-            //                2. class can implement more than 1
-            //                3. unrelated classes with same behaviour
+            //a) What is a Shallow Copy?
+            // shallow copy creates a new object but copies the references of its reference
 
-            // b)  When would you choose an Interface instead of an Abstract Class?
-            //    when classes can be unrelated but share same structure
-            //    or when class has multiple behaviors ( can implement multiple interfaces)
+            //b) What is a Deep Copy?
+            //deep copy creates a new object and independent copy, so changes to one object do not affect the other
 
-            // c)  Can a class inherit from multiple abstract classes? Can it implement multiple interfaces?
-            //     class cannot inherit multiple classes but can implement multiple interfaces
+            //c) What happens to reference-type members when a Shallow Copy is created?
+            // references are copied, so the original object and the copied object share the same address
 
+            //d) What happens to reference-type members when a Deep Copy is created?
+            //new copies objects are created, so the original and copied objects have independent objects
+
+            //e) Give one situation where Deep Copy would be safer than Shallow Copy.
+            //when copying a record that contains a mutable address object, deep copy is safer because changing the copied address will not affect the original
+
+            #endregion
+
+            #region Q3 Static Objects
+
+            //a) What is a static field, and how is it different from an instance field?
+            // static field: belongs to the class and shared by all objects
+            // instance field: belongs to each object and every object has its own copy
+
+
+            //b) What is a static method? Can a static method directly access instance members?
+            //static method belongs to the class and can be called without creating an object
+            //No
+
+            //c) What is a static constructor, and when is it executed ?
+            //tatic constructor initializes static members, executes automatically once before the class is used
+
+            //d) What is a static class? Can you create an object from a static class?
+            //static class contains only static members
+            //No
+
+
+            #endregion
+
+            #region Q4 Extenstion Methods
+
+            //a) What is an Extension Method?
+            // allows adding a new method to an existing type without modifying its original code
+
+            //b) What keyword must be used in the first parameter of an extension method? this.
+
+            //c) Where must an extension method be declared?
+            //inside a static class and the method  must also be static.
+
+            //d) Can an extension method access private members of the class it extends? no
+
+            #endregion
+
+            #region Q5 Partial
+
+            //a) What is a Partial Class?
+            // one class can be split into multiple parts across different files
+
+            //b) Why would a developer split one class into multiple files?
+            //organization, maintainance , teamwork
+
+            //c) What is a Partial Method?
+            //method declared in a partial class and implemented in another part of the same class.
+
+            //d) What happens if a declared partial method has no implementation?
+            //compiler removes its declaration,no error occurs.
 
             #endregion
 
 
             #endregion
-            #endregion
 
-            #region Part Two
+        #region Part Two
             Console.Write("Enter center name: ");
             string centerName = Console.ReadLine();
             DeliveryCenter deliveryCenter = new DeliveryCenter(centerName);
