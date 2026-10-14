@@ -110,5 +110,18 @@ namespace OOPAssignment02
             return (Shipment)this.MemberwiseClone();
         }
 
+        public Shipment DeepCopy()
+        {
+            Shipment copy = (Shipment)this.MemberwiseClone();
+
+            copy.Destination = new DeliveryAddress(
+                this.Destination.City,
+                this.Destination.Street,
+                this.Destination.BuildingNumber
+            );
+
+            return copy;
+        }
+
     }
 }

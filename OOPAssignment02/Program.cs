@@ -336,6 +336,20 @@ namespace OOPAssignment02
 
             #endregion
 
+            #region deep coping
+
+            Shipment shipment5 = shipment1.DeepCopy();
+
+            // Check whether they share the same address
+            Console.WriteLine(ReferenceEquals(shipment1.Destination, shipment5.Destination)); // false
+
+            // Change the copied shipment's address
+            shipment5.Destination = new DeliveryAddress("Giza", "Egypt", 123);
+            Console.WriteLine(shipment1.Destination.City); // Cairo
+            Console.WriteLine(shipment5.Destination.City);
+
+            #endregion
+
             #endregion
             Console.ReadLine();
         }
