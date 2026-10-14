@@ -350,6 +350,11 @@ namespace OOPAssignment02
 
             #endregion
 
+            #region static field
+            Console.WriteLine(Shipment.TotalShipmentsCreated);
+
+            #endregion
+
             #endregion
             Console.ReadLine();
         }

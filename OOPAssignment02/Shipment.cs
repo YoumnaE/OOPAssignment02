@@ -61,11 +61,9 @@ namespace OOPAssignment02
             weight = 1;
             deliveryFee = 50;
 
-            Destination = new DeliveryAddress(
-                "Unknown",
-                "Unknown",
-                0
-            );
+            Destination = new DeliveryAddress("Unknown","Unknown",0);
+
+            totalShipmentsCreated++;
         }
         public Shipment(string trackingCode, string description, decimal weight, decimal deliveryFee, DeliveryAddress destination)
         {
@@ -74,6 +72,8 @@ namespace OOPAssignment02
             Weight = weight;
             DeliveryFee = deliveryFee;
             Destination = destination;
+
+            totalShipmentsCreated++;
         }
         public void UpdateDeliveryFee(decimal newFee)
         {
@@ -123,5 +123,11 @@ namespace OOPAssignment02
             return copy;
         }
 
+        private static int totalShipmentsCreated = 0;
+
+        public static int TotalShipmentsCreated
+        {
+            get { return totalShipmentsCreated; }
+        }
     }
 }
