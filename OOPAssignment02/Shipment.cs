@@ -105,5 +105,10 @@ namespace OOPAssignment02
             return (Shipment)this.MemberwiseClone();
         }
 
+        public Shipment ShallowCopy()
+        {
+            return (Shipment)this.MemberwiseClone();
+        }
+
     }
 }

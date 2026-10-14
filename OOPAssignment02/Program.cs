@@ -326,6 +326,16 @@ namespace OOPAssignment02
 
             #endregion
 
+            #region shallow coping
+
+            Shipment shipment4 = shipment1.ShallowCopy();
+
+            // The address objects are the same
+            Console.WriteLine(ReferenceEquals(shipment1.Destination, shipment4.Destination));
+            // True
+
+            #endregion
+
             #endregion
             Console.ReadLine();
         }
