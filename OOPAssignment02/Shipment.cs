@@ -129,5 +129,16 @@ namespace OOPAssignment02
         {
             get { return totalShipmentsCreated; }
         }
+
+        static Shipment()
+        {
+            totalShipmentsCreated = 0;
+            Console.WriteLine("Shipment System Initialized");
+        }
+
+        public static int GetTotalShipmentsCreated()
+        {
+            return totalShipmentsCreated;
+        }
     }
 }

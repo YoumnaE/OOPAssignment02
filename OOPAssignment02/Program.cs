@@ -355,6 +355,18 @@ namespace OOPAssignment02
 
             #endregion
 
+            #region static method
+
+            Console.WriteLine($"Total Shipments Created : {Shipment.GetTotalShipmentsCreated()}");
+
+            #endregion
+
+            #region static class
+
+            DeliveryUtilities.PrintSystemTitle();
+
+            #endregion
+
             #endregion
             Console.ReadLine();
         }
