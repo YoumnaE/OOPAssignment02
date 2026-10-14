@@ -20,5 +20,7 @@ namespace OOPAssignment02
                 trackingStatus = newStatus;
             }
         }
+
+        partial void OnTrackingStatusChanged(string newStatus);
     }
 }

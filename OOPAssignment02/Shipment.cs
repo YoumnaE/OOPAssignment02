@@ -140,5 +140,10 @@ namespace OOPAssignment02
         {
             return totalShipmentsCreated;
         }
+
+        partial void OnTrackingStatusChanged(string newStatus)
+        {
+            Console.WriteLine($"Tracking status changed to: {newStatus}");
+        }
     }
 }

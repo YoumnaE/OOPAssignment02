@@ -374,6 +374,11 @@ namespace OOPAssignment02
 
             #endregion
 
+            #region partial method
+
+            shipment2.UpdateTrackingStatus("Out For Delivery");
+
+            #endregion
 
             #endregion
             Console.ReadLine();
