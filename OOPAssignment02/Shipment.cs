@@ -99,5 +99,11 @@ namespace OOPAssignment02
                 Weight = newWeight + packingWeight;
             }
         }
+
+        public Shipment CopyShipment()
+        {
+            return (Shipment)this.MemberwiseClone();
+        }
+
     }
 }

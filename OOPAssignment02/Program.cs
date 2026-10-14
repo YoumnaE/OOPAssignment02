@@ -100,7 +100,7 @@ namespace OOPAssignment02
 
             #endregion
 
-        #region Part Two
+        #region Past Assignment
             Console.Write("Enter center name: ");
             string centerName = Console.ReadLine();
             DeliveryCenter deliveryCenter = new DeliveryCenter(centerName);
@@ -305,8 +305,29 @@ namespace OOPAssignment02
             // }
             // compilation error.
 
-            Console.ReadLine();
+            
             #endregion
+
+            #region Part two
+
+            #region obj coping
+
+            StandardShipment shipment1 = new StandardShipment("SH001","Books",5,50,new DeliveryAddress("Alexandria", "Egypt", 12345));
+
+            Shipment shipment2 = shipment1;
+
+            //creates a separate shipment object
+            Shipment shipment3 = shipment1.CopyShipment();
+
+            shipment2.UpdateWeight(10);
+
+            Console.WriteLine(shipment1.Weight); // 10
+            Console.WriteLine(shipment3.Weight); // 5
+
+            #endregion
+
+            #endregion
+            Console.ReadLine();
         }
     }
 }
