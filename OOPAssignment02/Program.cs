@@ -367,6 +367,14 @@ namespace OOPAssignment02
 
             #endregion
 
+            #region extension method
+
+            Console.WriteLine(shipment1.GetSummary());
+            Console.WriteLine(shipment2.IsDelivered());
+
+            #endregion
+
+
             #endregion
             Console.ReadLine();
         }
